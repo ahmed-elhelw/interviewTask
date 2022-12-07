@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BehaviorSubject, catchError, combineLatest, EMPTY, map } from 'rxjs';
 import { ProductCategoryService } from '../product-category/product-category.service';
+import { SearchService } from '../search-service/search.service';
 import { ProductService } from './product.service';
 
 @Component({
@@ -46,10 +47,19 @@ export class ProductListComponent {
       })
     );
 
-
+  filteredProductWithSearch$ = combineLatest([
+    this.filteredProducts$,
+    this.searachService.SearchProductAction$,
+  ]).pipe(
+    map(([products,searchedPro])=>
+    products.filter((product:any)=>
+    searchedPro? product.title.toLowerCase().indexOf(searchedPro)>-1: true
+    )),
+  );
 
   constructor(private productService: ProductService,
-    private productCategoryService: ProductCategoryService) {
+    private productCategoryService: ProductCategoryService,
+    private searachService: SearchService) {
   }
 
   onChangeCategory(event:any): void {

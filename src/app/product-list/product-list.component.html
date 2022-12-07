@@ -17,7 +17,7 @@
 
   <!-- put it in different component call product card component -->
   <div class="right" >
-    <div class="row"  *ngIf="filteredProducts$ |async as products">
+    <div class="row"  *ngIf="filteredProductWithSearch$ |async as products">
       <div class="column" >
         <div class="products-container">
           <div class="card" *ngFor="let product of products | paginate: { itemsPerPage: 10, currentPage: p }">

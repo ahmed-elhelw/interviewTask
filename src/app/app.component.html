@@ -4,7 +4,8 @@
   <a class="nav-link" [routerLink]="['/login']">Log In</a>
   <div class="search">
     <input type="text"
-    placeholder="Search..">
+    placeholder="Search.."
+    (keyup)="onChangeSearch($event)">
 </div>
 
 </div>
