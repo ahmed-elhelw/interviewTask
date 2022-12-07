@@ -1,0 +1,113 @@
+.container {
+  display: flex; /* or inline-flex */
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.card {
+  min-width: 250px;
+  max-width: 300px;
+  border: 0.5px solid rgba(66, 66, 66, 0.5);
+  border-radius: 8px;
+  max-width: 280px;
+
+}
+
+.card-body{
+  width: 100%;
+  box-sizing: border-box;
+  padding:16px;
+}
+
+.left{
+  font-family: arial;
+  min-width: 200px;
+  max-width: 280px;
+  padding: 12px;
+  box-sizing: border-box;
+  border: 0.5px solid rgba(66, 66, 66, 0.5);
+  border-radius: 8px;
+  height: fit-content;
+}
+
+
+.price {
+  color: grey;
+  font-size: 15px;
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: #344054;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: #56D9D9;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+.flex-container {
+  display: flex;
+  align-items: stretch;
+  background-color: #f1f1f1;
+}
+
+.flex-container > div {
+  margin: 10px;
+}
+
+
+.products-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: flex-start;
+}
+
+.cat-header{
+  margin-bottom: 16px;
+}
+.checkbox-container{
+  margin-bottom: 4px;
+  text-transform: capitalize;
+}
+
+.checkbox-container input{
+  margin-right: 4px;
+}
+
+.product-image{
+ height: 258px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+}
+
+.card-head{
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.card-para{
+  margin-bottom: 16px;
+  height: 80px;
+}
+
+.cart-button{
+  background-color: #56D9D9;
+
+}
