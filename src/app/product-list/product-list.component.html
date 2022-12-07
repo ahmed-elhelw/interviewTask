@@ -1,1 +1,45 @@
-<p>product-list works!</p>
+<div class="container">
+
+  <div class="left" *ngIf="categories$ |async as categories ">
+      <h3 class="cat-header">Products</h3>
+    <div *ngFor="let cat of categories; let i = index" class="checkbox-container">
+        <input
+        type="checkbox"
+        [id]="cat"
+        [value]="cat"
+        [ngModel]="checkedIdx == i"
+        (ngModelChange)="$event? checkedIdx = i : checkedIdx =-1"
+        (change)="onChangeCategory($any($event))"
+        >
+        <label [for]="cat">{{cat}}</label>
+    </div>
+  </div>
+
+  <!-- put it in different component call product card component -->
+  <div class="right" >
+    <div class="row"  *ngIf="filteredProducts$ |async as products">
+      <div class="column" >
+        <div class="products-container">
+          <div class="card" *ngFor="let product of products | paginate: { itemsPerPage: 10, currentPage: p }">
+            <img [src]="product.thumbnail"
+                  style="width:100%"
+                  [title]="product.title"
+                  class="product-image">
+                  <div class="card-body">
+                    <h3 class="card-head">{{ product.title }}</h3>
+                    <p class="card-para">{{ product.description }}</p>
+                    <p class="price">{{ product.price | currency:"USD":"symbol":"1.2-2" }}</p>
+                    <button class="cart-button">Add to Cart</button>
+                  </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end of product card component  -->
+</div>
+
+
+
+<pagination-controls (pageChange)="p = $event" style="text-align:center"></pagination-controls>
